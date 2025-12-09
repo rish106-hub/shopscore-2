@@ -6,7 +6,9 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 
 const app = express();
-app.use(cors());
+// Configure CORS to allow requests from the frontend URL specified in environment variables
+app.use(cors({ origin: process.env.FRONTEND_URL }));
+
 app.use(express.json());
 
 // Connect to MongoDB
